@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIL & Phonics Teacher Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex flex-shrink-0">
+            <div class="p-6 border-b border-slate-800">
+                <div class="flex items-center gap-3 text-brand-500 mb-2">
+                    <i class="fa-solid fa-graduation-cap text-3xl"></i>
+                    <h1 class="font-bold text-xl leading-tight">ITCA FEPADE</h1>
+                </div>
+                <p class="text-xs text-slate-400">Teacher Training Program</p>
+            </div>
+            
+            <nav class="flex-1 overflow-y-auto py-4">
+                <ul class="space-y-1 px-3">
+                    <li>
+                        <button onclick="switchTab('intro')" id="btn-intro" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors bg-brand-600 text-white">
+                            <i class="fa-solid fa-house w-5 text-center"></i>
+                            Home & Methodology
+                        </button>
+                    </li>
+                    <li class="pt-4 pb-2 px-4">
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Modules</span>
+                    </li>
+                    <li>
+                        <button onclick="switchTab('mod3')" id="btn-mod3" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white">
+                            <i class="fa-solid fa-spell-check w-5 text-center"></i>
+                            Module 3: Phonics
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="switchTab('mod4')" id="btn-mod4" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white">
+                            <i class="fa-solid fa-gamepad w-5 text-center"></i>
+                            Module 4: Gamification
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="switchTab('mod5')" id="btn-mod5" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:bg-slate-800 hover:text-white">
+                            <i class="fa-solid fa-chart-pie w-5 text-center"></i>
+                            Module 5: Assessment
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="p-4 border-t border-slate-800">
+                <div class="flex items-center gap-3">
+                    <img src="https://placehold.co/40x40/0d9488/ffffff?text=TD" alt="User" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="text-sm font-medium text-white">Teacher Portal</p>
+                        <p class="text-xs text-slate-400">View Profile</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-hidden relative">
+            <header class="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between md:hidden">
+                <div class="flex items-center gap-2 text-brand-600">
+                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                    <h1 class="font-bold text-lg">ITCA FEPADE</h1>
+                </div>
+                <button class="text-slate-500 hover:text-slate-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-y-auto p-6 md:p-10 bg-slate-50">
+                <div class="max-w-5xl mx-auto">
+                    
+                    <div id="intro" class="tab-content active">
+                        <header class="mb-8">
+                            <span class="bg-brand-100 text-brand-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Program Overview</span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-4 mb-2">CLIL & Phonics with AI Support</h2>
+                            <p class="text-slate-600 text-lg">Empowering Early Childhood and First Cycle Educators</p>
+                        </header>
+
+                        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
+                            <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Methodological Foundations</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl">
+                                            <i class="fa-solid fa-earth-americas"></i>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-800">What is CLIL?</h4>
+                                    </div>
+                                    <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                                        <strong>CLIL</strong> (Content and Language Integrated Learning) is an approach where students learn curricular content (like science, math, or art) while simultaneously developing their English language skills. The language becomes the <em>vehicle</em> to explore the world.
+                                    </p>
+                                    <ul class="space-y-2 text-sm text-slate-700">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> <strong>Content:</strong> Acquiring new knowledge.</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> <strong>Communication:</strong> Using English to learn.</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> <strong>Cognition:</strong> Critical thinking.</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> <strong>Culture:</strong> Global citizenship.</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center text-xl">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </div>
+                                        <h4 class="text-xl font-bold text-slate-800">Systematic Phonics</h4>
+                                    </div>
+                                    <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                                        A systematic approach to teaching literacy that focuses on the direct relationship between spoken sounds (phonemes) and the letters that represent them (graphemes).
+                                    </p>
+                                    <p class="text-slate-600 text-sm leading-relaxed">
+                                        Children are taught to <strong>blend</strong> sounds to read CVC (Consonant-Vowel-Consonant) words and <strong>segment</strong> them to spell. This guarantees fluency, correct pronunciation, and confidence from an early age, avoiding visual memorization of whole words.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 bg-indigo-50 border border-indigo-100 p-6 rounded-xl flex flex-col md:flex-row gap-6 items-center">
+                                <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl flex-shrink-0">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-800 mb-2">The Role of Artificial Intelligence (AI)</h4>
+                                    <p class="text-slate-600 text-sm">
+                                        AI acts as your <strong>pedagogical assistant</strong>. We will use it to automate lesson plans, adapt complex texts to A1/A2 levels, design illustrated decodable books, and generate analytical rubrics in seconds, allowing you to focus on what matters most: <em>your students</em>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-800 mt-10 mb-6 border-b pb-2">Essential Platforms & Global Resources</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <a href="https://www.teachingenglish.org.uk/" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 group">
+                                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-globe"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">British Council</h5>
+                                        <p class="text-xs text-slate-500 mt-1">TeachingEnglish CLIL resources and lesson plans.</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.jollylearning.co.uk/" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 group">
+                                    <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-book"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">Jolly Learning</h5>
+                                        <p class="text-xs text-slate-500 mt-1">Official phonics methodology and training materials.</p>
+                                    </div>
+                                </a>
+                                <a href="https://www.magicschool.ai/" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 group">
+                                    <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-slate-800 text-sm group-hover:text-brand-600">MagicSchool AI</h5>
+                                        <p class="text-xs text-slate-500 mt-1">Leading AI platform designed specifically for educators.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mod3" class="tab-content">
+                        <header class="mb-8">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Module 3</span>
+                            <h2 class="text-3xl font-bold text-slate-900 mt-4 mb-2">Phonological Awareness & Early Literacy</h2>
+                            <p class="text-slate-600 text-sm flex items-center gap-2">
+                                <i class="fa-regular fa-clock"></i> 16 hours (4 synchronous sessions | 8:00 am - 12:00 pm)
+                            </p>
+                        </header>
+
+                        <div class="grid lg:grid-cols-3 gap-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">🗓️ Learning Path & Schedule</h3>
+                                    <ul class="space-y-4">
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">TUE</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 3</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 1: Phonics Fundamentals & Pure Sounds</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Difference between letter names and sounds. Exploration of the first sound groups (e.g., s, a, t, p, i, n).</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">FRI</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 6</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 2: Sound-Letter Relationship & Blending</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Blending techniques to read and Segmenting to write. Reading CVC words.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">WED</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 11</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 3: Fluency, Rhymes & Multisensory Activities</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Using body movement, textures, songs, and rhyme games to consolidate learning.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">FRI</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 13</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 4: Resource Design & Microteaching</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Practical workshop: Creating visual/auditory resources and group demonstrations.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">💬 Discussion Forum</h3>
+                                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                                        <h4 class="font-bold text-amber-800 mb-2">"From Memory to Decoding"</h4>
+                                        <p class="text-sm text-amber-900 mb-4">
+                                            <em>Prompt:</em> Based on your experience in Early Childhood, what are the biggest challenges when teaching reading using the global method (visual memorization) versus the Phonics method? Reply to at least one colleague.
+                                        </p>
+                                        <button class="bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+                                            Join Discussion
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                        <i class="fa-solid fa-link text-brand-500"></i> Module Resources
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <a href="https://www.readingrockets.org/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-rocket text-red-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Reading Rockets</span>
+                                                <span class="text-slate-500 text-xs">Evidence-based reading research</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.phonicsplay.co.uk/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-mouse-pointer text-blue-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">PhonicsPlay</span>
+                                                <span class="text-slate-500 text-xs">Interactive Phonics Games</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.starfall.com/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-star text-yellow-400 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Starfall</span>
+                                                <span class="text-slate-500 text-xs">Phonics reading and activities</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.oxfordowl.co.uk/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-book-open text-blue-400 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Oxford Owl</span>
+                                                <span class="text-slate-500 text-xs">Free eBook library for kids</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v=1Qpn2839Kro" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-brands fa-youtube text-red-600 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Video Demo</span>
+                                                <span class="text-slate-500 text-xs">Jolly Phonics Letter Sounds</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl shadow-sm p-6 text-white">
+                                    <h3 class="font-bold mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-upload"></i> Deliverable
+                                    </h3>
+                                    <h4 class="font-semibold text-brand-100 text-sm mb-3">"CVC Sequence"</h4>
+                                    <p class="text-sm text-brand-50 mb-4 opacity-90">
+                                        Design a 20-minute micro-lesson sequence aimed at teaching 5 CVC words using a multisensory activity (e.g., sand, playdough, or body movement).
+                                    </p>
+                                    <button class="w-full bg-white text-brand-700 hover:bg-slate-50 font-bold py-2 px-4 rounded-lg transition-colors text-sm shadow-sm">
+                                        Submit Assignment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mod4" class="tab-content">
+                        <header class="mb-8">
+                            <span class="bg-pink-100 text-pink-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Module 4</span>
+                            <h2 class="text-3xl font-bold text-slate-900 mt-4 mb-2">Gamification & AI Material Design</h2>
+                            <p class="text-slate-600 text-sm flex items-center gap-2">
+                                <i class="fa-regular fa-clock"></i> 16 hours (4 synchronous sessions | 8:00 am - 12:00 pm)
+                            </p>
+                        </header>
+
+                        <div class="grid lg:grid-cols-3 gap-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">🗓️ Learning Path & Schedule</h3>
+                                    <ul class="space-y-4">
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">WED</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 18</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 1: Gamification Fundamentals in Bilingual Classrooms</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Dynamics, mechanics, and game components applied to reading.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">FRI</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 20</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 2: Creating Decodable Books with AI</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Using prompts in ChatGPT/Claude to generate texts adapted to specific phonemes children already know.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">WED</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 25</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 3: Literacy Centers & Reading Stations</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Physical classroom organization. Designing differentiated worksheets based on learning pace.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">FRI</span>
+                                                <span class="text-lg font-bold text-slate-800">Nov 27</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 4: Innovative Materials Workshop</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Presentation of gamified projects (Illustrated phonics stories and activity booklets).</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">💬 Discussion Forum</h3>
+                                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                                        <h4 class="font-bold text-amber-800 mb-2">"Playing with Purpose"</h4>
+                                        <p class="text-sm text-amber-900 mb-4">
+                                            <em>Prompt:</em> How do we prevent gamification from becoming just "playing for the sake of playing" and ensure that real phonetic learning takes place in reading stations?
+                                        </p>
+                                        <button class="bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+                                            Join Discussion
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                        <i class="fa-solid fa-link text-brand-500"></i> Module Resources
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <a href="https://www.edutopia.org/article/gamification-early-childhood" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-lightbulb text-yellow-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Edutopia Article</span>
+                                                <span class="text-slate-500 text-xs">The Power of Gamification</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.canva.com/education/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-pen-nib text-cyan-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Canva for Education</span>
+                                                <span class="text-slate-500 text-xs">Free visual design platform</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.blooket.com/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-shapes text-orange-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Blooket</span>
+                                                <span class="text-slate-500 text-xs">Engaging gamified learning</span>
+                                            </div>
+                                        </a>
+                                        <div class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 cursor-pointer group">
+                                            <i class="fa-solid fa-robot text-teal-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">AI Prompts Guide</span>
+                                                <span class="text-slate-500 text-xs">Top 10 Prompts for Teachers (PDF)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl shadow-sm p-6 text-white">
+                                    <h3 class="font-bold mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-upload"></i> Deliverable
+                                    </h3>
+                                    <h4 class="font-semibold text-brand-100 text-sm mb-3">"Illustrated Phonics Story"</h4>
+                                    <p class="text-sm text-brand-50 mb-4 opacity-90">
+                                        Using Generative AI (ChatGPT) and a design tool (Canva), create a short 6-page decodable story focusing on a specific short vowel sound (e.g., Short 'a').
+                                    </p>
+                                    <button class="w-full bg-white text-brand-700 hover:bg-slate-50 font-bold py-2 px-4 rounded-lg transition-colors text-sm shadow-sm">
+                                        Submit Assignment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mod5" class="tab-content">
+                        <header class="mb-8">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Module 5</span>
+                            <h2 class="text-3xl font-bold text-slate-900 mt-4 mb-2">Formative Assessment & AI Feedback</h2>
+                            <p class="text-slate-600 text-sm flex items-center gap-2">
+                                <i class="fa-regular fa-clock"></i> 16 hours (4 synchronous sessions | 8:00 am - 12:00 pm)
+                            </p>
+                        </header>
+
+                        <div class="grid lg:grid-cols-3 gap-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">🗓️ Learning Path & Schedule</h3>
+                                    <ul class="space-y-4">
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">WED</span>
+                                                <span class="text-lg font-bold text-slate-800">Dec 2</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 1: Assessment in CLIL Environments</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Do we assess content or language? Bilingual balance. Systematic observation techniques.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">FRI</span>
+                                                <span class="text-lg font-bold text-slate-800">Dec 4</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 2: Designing Analytical Rubrics with AI</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Creating clear and precise evaluation instruments using AI to speed up the process.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">WED</span>
+                                                <span class="text-lg font-bold text-slate-800">Dec 9</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 3: Assessing Reading Fluency</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Initial reading diagnostics, adapted running records, and effective positive feedback for young children.</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex gap-4">
+                                            <div class="w-14 h-14 rounded-lg bg-slate-100 flex flex-col items-center justify-center flex-shrink-0 border border-slate-200">
+                                                <span class="text-xs font-bold text-slate-500">FRI</span>
+                                                <span class="text-lg font-bold text-slate-800">Dec 11</span>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-slate-800">Class 4: Program Closure - Digital Tools</h4>
+                                                <p class="text-sm text-slate-600 mt-1">Designing a Gamified Digital Assessment System. Presentation of final instruments.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">💬 Discussion Forum</h3>
+                                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                                        <h4 class="font-bold text-amber-800 mb-2">"Feedback that Transforms"</h4>
+                                        <p class="text-sm text-amber-900 mb-4">
+                                            <em>Prompt:</em> In the early stages of literacy, constant correction can frustrate the student. Share a feedback strategy you use to correct English pronunciation mistakes without demotivating the child.
+                                        </p>
+                                        <button class="bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+                                            Join Discussion
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                                    <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                        <i class="fa-solid fa-link text-brand-500"></i> Module Resources
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <a href="https://www.cambridgeenglish.org/teaching-english/resources-for-teachers/clil/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-graduation-cap text-red-600 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Cambridge English</span>
+                                                <span class="text-slate-500 text-xs">Assessment in CLIL Guidelines</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://quizizz.com/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-bolt text-purple-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Quizizz</span>
+                                                <span class="text-slate-500 text-xs">Interactive formative assessments</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://www.formative.com/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-chart-line text-blue-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Formative</span>
+                                                <span class="text-slate-500 text-xs">Real-time student progress tracking</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://wordwall.net/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-border-all text-blue-600 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Wordwall</span>
+                                                <span class="text-slate-500 text-xs">Gamified evaluation tools</span>
+                                            </div>
+                                        </a>
+                                        <a href="http://rubistar.4teachers.org/" target="_blank" class="flex items-start gap-3 p-2 hover:bg-slate-50 rounded-lg transition-colors border border-transparent hover:border-slate-200 group">
+                                            <i class="fa-solid fa-table-list text-green-500 text-lg mt-0.5"></i>
+                                            <div>
+                                                <span class="font-semibold text-slate-800 group-hover:text-brand-600 block">Rubistar / AI</span>
+                                                <span class="text-slate-500 text-xs">Rubric generators</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl shadow-sm p-6 text-white">
+                                    <h3 class="font-bold mb-2 flex items-center gap-2">
+                                        <i class="fa-solid fa-upload"></i> Final Project
+                                    </h3>
+                                    <h4 class="font-semibold text-brand-100 text-sm mb-3">"CLIL/Phonics Assessment Portfolio"</h4>
+                                    <ul class="text-sm text-brand-50 mb-4 opacity-90 space-y-2 pl-4 list-disc">
+                                        <li>Design an analytical rubric (AI-supported) to assess reading fluency or participation in a CLIL class.</li>
+                                        <li>Create a formative tracking instrument (observation checklist) for a teaching unit.</li>
+                                    </ul>
+                                    <button class="w-full bg-white text-brand-700 hover:bg-slate-50 font-bold py-2 px-4 rounded-lg transition-colors text-sm shadow-sm">
+                                        Submit Final Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Reset button styles
+            const buttons = ['btn-intro', 'btn-mod3', 'btn-mod4', 'btn-mod5'];
+            buttons.forEach(btn => {
+                const element = document.getElementById(btn);
+                if(element) {
+                    element.classList.remove('bg-brand-600', 'text-white');
+                    element.classList.add('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+                }
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Highlight active button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-slate-300', 'hover:bg-slate-800');
+            activeBtn.classList.add('bg-brand-600', 'text-white');
+        }
+    </script>
+</body>
+</html>
